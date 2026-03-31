@@ -10,6 +10,10 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'),
 
 app.use(morgan('combined', { stream: accessLogStream }))
 
+app.use(morgan('combined'))
+app.use(morgan('common'))
+app.use(morgan('short'))
+app.use(morgan('dev'))
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
